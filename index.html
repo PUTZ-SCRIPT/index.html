@@ -1,0 +1,82 @@
+<!DOCTYPE html><html>
+<head>
+    <title>PUTZ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }/* Video Background */
+    #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transform: scale(0.95); /* Mundur sedikit tapi tetap full */
+        transform-origin: center;
+        z-index: -1;
+    }
+
+    /* Overlay Masuk */
+    #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        cursor: pointer;
+        z-index: 10;
+        color: white;
+    }
+
+    /* Tulisan PUTZ kanan bersinar */
+    .putz {
+        position: fixed;
+        right: 15px;
+        top: 15px;
+        font-size: 28px; /* Diperkecil */
+        font-weight: bold;
+        color: white;
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #00ffff,
+            0 0 20px #00ffff;
+        animation: glow 2s infinite alternate;
+    }
+
+    @keyframes glow {
+        from {
+            text-shadow:
+                0 0 5px #fff,
+                0 0 10px #00ffff,
+                0 0 20px #00ffff;
+        }
+        to {
+            text-shadow:
+                0 0 10px #fff,
+                0 0 20px #00ffff,
+                0 0 40px #00ffff,
+                0 0 80px #00ffff;
+        }
+    }
+</style>
+
+</head>
+<body><!-- Overlay Klik untuk Masuk --><div id="overlay" onclick="enterSite()">
+    <h1>Tekan Untuk Masuk</h1>
+</div><!-- Video Background dengan Audio --><video id="bg-video" loop>
+    <source src="ssstik.io_@rayy_senpai03_1772594552530.mp4" type="video/mp4">
+</video><!-- Tulisan PUTZ --><div class="putz">PUTZ</div><script>
+function enterSite() {
+    var video = document.getElementById("bg-video");
+    video.play();
+    document.getElementById("overlay").style.display = "none";
+}
+</script></body>
+</html>
